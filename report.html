@@ -1,327 +1,38 @@
-<html>
-<head>
+Simple HBase benchmarking application
+Scenario,                                         Num Threads,        Puts,       Mean,      Stdev,        Max,        Min,    80 Pctl,    90 Pctl
+HTable from HTablePool (pool size: 100)           ,          1,        100,       4.86,       1.49,      12.00,       3.00,       5.00,       6.90
+HTable with same configuration instance           ,          1,        100,       4.52,       1.12,       9.00,       3.00,       5.00,       6.90
+HTable with new Hbase configuration instance      ,          1,        100,       4.15,       0.88,       8.00,       3.00,       4.00,       5.00
 
-<style type="text/css">
-td {
-	border: 1px solid black;
-	padding: 2px;
-	margin: 0px;
-}
-</style>
-</head>
-<body>
-<table cellpadding="0" cellspacing="0">
-	<tr>
-		<td colspan="9"><b>Simple HBase benchmarking application</b></td>
-	</tr>
-	<tr style="background-color: silver;">
-		<td>Scenario</td>
-		<td>Num Threads</td>
-		<td>Puts</td>
-		<td>Mean</td>
-		<td>Stdev</td>
-		<td>Max</td>
-		<td>Min</td>
-		<td>80 Pctl</td>
-		<td>90 Pctl</td>
-	</tr>
-	<tr>
-		<td>HTable from HTablePool (pool size: 100)</td>
-		<td>1</td>
-		<td>100</td>
-		<td>4.86</td>
-		<td>1.49</td>
-		<td>12.00</td>
-		<td>3.00</td>
-		<td>5.00</td>
-		<td>6.90</td>
-	</tr>
-	<tr>
-		<td>HTable with same configuration instance</td>
-		<td>1</td>
-		<td>100</td>
-		<td>4.52</td>
-		<td>1.12</td>
-		<td>9.00</td>
-		<td>3.00</td>
-		<td>5.00</td>
-		<td>6.90</td>
-	</tr>
-	<tr>
-		<td>HTable with new Hbase configuration instance</td>
-		<td>1</td>
-		<td>100</td>
-		<td>4.15</td>
-		<td>0.88</td>
-		<td>8.00</td>
-		<td>3.00</td>
-		<td>4.00</td>
-		<td>5.00</td>
-	</tr>
-	<tr>
-		<td>HTable from HTablePool (pool size: 100)</td>
-		<td>1</td>
-		<td>1000</td>
-		<td>4.19</td>
-		<td>3.60</td>
-		<td>108.00</td>
-		<td>3.00</td>
-		<td>4.00</td>
-		<td>5.00</td>
-	</tr>
-	<tr>
-		<td>HTable with same configuration instance</td>
-		<td>1</td>
-		<td>1000</td>
-		<td>4.02</td>
-		<td>1.79</td>
-		<td>47.00</td>
-		<td>3.00</td>
-		<td>4.00</td>
-		<td>5.00</td>
-	</tr>
-	<tr>
-		<td>HTable with new Hbase configuration instance</td>
-		<td>1</td>
-		<td>1000</td>
-		<td>3.84</td>
-		<td>3.57</td>
-		<td>108.00</td>
-		<td>3.00</td>
-		<td>4.00</td>
-		<td>4.00</td>
-	</tr>
-	<tr>
-		<td>HTable from HTablePool (pool size: 100)</td>
-		<td>1</td>
-		<td>10000</td>
-		<td>3.95</td>
-		<td>4.13</td>
-		<td>211.00</td>
-		<td>2.00</td>
-		<td>4.00</td>
-		<td>5.00</td>
-	</tr>
-	<tr>
-		<td>HTable with same configuration instance</td>
-		<td>1</td>
-		<td>10000</td>
-		<td>4.28</td>
-		<td>10.02</td>
-		<td>571.00</td>
-		<td>2.00</td>
-		<td>4.00</td>
-		<td>5.00</td>
-	</tr>
-	<tr>
-		<td>HTable with new Hbase configuration instance</td>
-		<td>1</td>
-		<td>10000</td>
-		<td>3.80</td>
-		<td>5.46</td>
-		<td>244.00</td>
-		<td>2.00</td>
-		<td>4.00</td>
-		<td>4.00</td>
-	</tr>
-	<tr>
-		<td>HTable from HTablePool (pool size: 100)</td>
-		<td>10</td>
-		<td>100</td>
-		<td>24.59</td>
-		<td>22.73</td>
-		<td>204.00</td>
-		<td>4.00</td>
-		<td>38.60</td>
-		<td>44.00</td>
-	</tr>
-	<tr>
-		<td>HTable with same configuration instance</td>
-		<td>10</td>
-		<td>100</td>
-		<td>20.48</td>
-		<td>28.05</td>
-		<td>233.00</td>
-		<td>5.00</td>
-		<td>22.00</td>
-		<td>36.80</td>
-	</tr>
-	<tr>
-		<td>HTable with new Hbase configuration instance</td>
-		<td>10</td>
-		<td>100</td>
-		<td>21.44</td>
-		<td>28.05</td>
-		<td>241.00</td>
-		<td>5.00</td>
-		<td>26.80</td>
-		<td>50.90</td>
-	</tr>
-	<tr>
-		<td>HTable from HTablePool (pool size: 100)</td>
-		<td>10</td>
-		<td>1000</td>
-		<td>26.10</td>
-		<td>21.94</td>
-		<td>246.00</td>
-		<td>5.00</td>
-		<td>40.00</td>
-		<td>49.00</td>
-	</tr>
-	<tr>
-		<td>HTable with same configuration instance</td>
-		<td>10</td>
-		<td>1000</td>
-		<td>23.80</td>
-		<td>25.31</td>
-		<td>238.00</td>
-		<td>3.00</td>
-		<td>35.80</td>
-		<td>44.00</td>
-	</tr>
-	<tr>
-		<td>HTable with new Hbase configuration instance</td>
-		<td>10</td>
-		<td>1000</td>
-		<td>22.55</td>
-		<td>21.96</td>
-		<td>209.00</td>
-		<td>4.00</td>
-		<td>35.00</td>
-		<td>44.00</td>
-	</tr>
-	<tr>
-		<td>HTable with same configuration instance</td>
-		<td>10</td>
-		<td>10000</td>
-		<td>22.67</td>
-		<td>18.44</td>
-		<td>287.00</td>
-		<td>3.00</td>
-		<td>37.00</td>
-		<td>45.00</td>
-	</tr>
-	<tr>
-		<td>HTable from HTablePool (pool size: 100)</td>
-		<td>10</td>
-		<td>10000</td>
-		<td>22.06</td>
-		<td>18.81</td>
-		<td>279.00</td>
-		<td>3.00</td>
-		<td>36.00</td>
-		<td>43.00</td>
-	</tr>
-	<tr>
-		<td>HTable with new Hbase configuration instance</td>
-		<td>10</td>
-		<td>10000</td>
-		<td>24.43</td>
-		<td>26.67</td>
-		<td>507.00</td>
-		<td>3.00</td>
-		<td>38.00</td>
-		<td>46.00</td>
-	</tr>
-	<tr>
-		<td>HTable from HTablePool (pool size: 100)</td>
-		<td>100</td>
-		<td>100</td>
-		<td>106.45</td>
-		<td>68.53</td>
-		<td>422.00</td>
-		<td>5.00</td>
-		<td>164.60</td>
-		<td>199.40</td>
-	</tr>
-	<tr>
-		<td>HTable with same configuration instance</td>
-		<td>100</td>
-		<td>100</td>
-		<td>102.81</td>
-		<td>68.45</td>
-		<td>421.00</td>
-		<td>4.00</td>
-		<td>167.80</td>
-		<td>194.60</td>
-	</tr>
-	<tr>
-		<td>HTable with new Hbase configuration instance</td>
-		<td>100</td>
-		<td>100</td>
-		<td>25.73</td>
-		<td>20.58</td>
-		<td>209.00</td>
-		<td>4.00</td>
-		<td>29.80</td>
-		<td>35.90</td>
-	</tr>
-	<tr>
-		<td>HTable from HTablePool (pool size: 100)</td>
-		<td>100</td>
-		<td>1000</td>
-		<td>195.38</td>
-		<td>189.46</td>
-		<td>696.00</td>
-		<td>3.00</td>
-		<td>375.80</td>
-		<td>488.00</td>
-	</tr>
-	<tr>
-		<td>HTable with same configuration instance</td>
-		<td>100</td>
-		<td>1000</td>
-		<td>189.86</td>
-		<td>193.69</td>
-		<td>688.00</td>
-		<td>3.00</td>
-		<td>384.00</td>
-		<td>492.00</td>
-	</tr>
-	<tr>
-		<td>HTable with new Hbase configuration instance</td>
-		<td>100</td>
-		<td>1000</td>
-		<td>79.80</td>
-		<td>110.55</td>
-		<td>525.00</td>
-		<td>4.00</td>
-		<td>151.00</td>
-		<td>252.80</td>
-	</tr>
-	<tr>
-		<td>HTable from HTablePool (pool size: 100)</td>
-		<td>100</td>
-		<td>10000</td>
-		<td>219.65</td>
-		<td>214.10</td>
-		<td>1277.00</td>
-		<td>3.00</td>
-		<td>433.00</td>
-		<td>543.00</td>
-	</tr>
-	<tr>
-		<td>HTable with same configuration instance</td>
-		<td>100</td>
-		<td>10000</td>
-		<td>277.60</td>
-		<td>473.36</td>
-		<td>4129.00</td>
-		<td>3.00</td>
-		<td>453.80</td>
-		<td>609.00</td>
-	</tr>
-	<tr>
-		<td>HTable with new Hbase configuration instance</td>
-		<td>100</td>
-		<td>10000</td>
-		<td>214.80</td>
-		<td>230.87</td>
-		<td>1386.00</td>
-		<td>3.00</td>
-		<td>435.00</td>
-		<td>566.00</td>
-	</tr>
-</table>
-</body>
-</html>
+HTable from HTablePool (pool size: 100)           ,          1,       1000,       4.19,       3.60,     108.00,       3.00,       4.00,       5.00
+HTable with same configuration instance           ,          1,       1000,       4.02,       1.79,      47.00,       3.00,       4.00,       5.00
+HTable with new Hbase configuration instance      ,          1,       1000,       3.84,       3.57,     108.00,       3.00,       4.00,       4.00
+
+HTable from HTablePool (pool size: 100)           ,          1,      10000,       3.95,       4.13,     211.00,       2.00,       4.00,       5.00
+HTable with same configuration instance           ,          1,      10000,       4.28,      10.02,     571.00,       2.00,       4.00,       5.00
+HTable with new Hbase configuration instance      ,          1,      10000,       3.80,       5.46,     244.00,       2.00,       4.00,       4.00
+
+HTable from HTablePool (pool size: 100)           ,         10,        100,      24.59,      22.73,     204.00,       4.00,      38.60,      44.00
+HTable with same configuration instance           ,         10,        100,      20.48,      28.05,     233.00,       5.00,      22.00,      36.80
+HTable with new Hbase configuration instance      ,         10,        100,      21.44,      28.05,     241.00,       5.00,      26.80,      50.90
+
+HTable from HTablePool (pool size: 100)           ,         10,       1000,      26.10,      21.94,     246.00,       5.00,      40.00,      49.00
+HTable with same configuration instance           ,         10,       1000,      23.80,      25.31,     238.00,       3.00,      35.80,      44.00
+HTable with new Hbase configuration instance      ,         10,       1000,      22.55,      21.96,     209.00,       4.00,      35.00,      44.00
+
+HTable with same configuration instance           ,         10,      10000,      22.67,      18.44,     287.00,       3.00,      37.00,      45.00
+HTable from HTablePool (pool size: 100)           ,         10,      10000,      22.06,      18.81,     279.00,       3.00,      36.00,      43.00
+HTable with new Hbase configuration instance      ,         10,      10000,      24.43,      26.67,     507.00,       3.00,      38.00,      46.00
+
+HTable from HTablePool (pool size: 100)           ,        100,        100,     106.45,      68.53,     422.00,       5.00,     164.60,     199.40
+HTable with same configuration instance           ,        100,        100,     102.81,      68.45,     421.00,       4.00,     167.80,     194.60
+HTable with new Hbase configuration instance      ,        100,        100,      25.73,      20.58,     209.00,       4.00,      29.80,      35.90
+
+HTable from HTablePool (pool size: 100)           ,        100,       1000,     195.38,     189.46,     696.00,       3.00,     375.80,     488.00
+HTable with same configuration instance           ,        100,       1000,     189.86,     193.69,     688.00,       3.00,     384.00,     492.00
+HTable with new Hbase configuration instance      ,        100,       1000,      79.80,     110.55,     525.00,       4.00,     151.00,     252.80
+
+HTable from HTablePool (pool size: 100)           ,        100,      10000,     219.65,     214.10,    1277.00,       3.00,     433.00,     543.00
+HTable with same configuration instance           ,        100,      10000,     277.60,     473.36,    4129.00,       3.00,     453.80,     609.00
+HTable with new Hbase configuration instance      ,        100,      10000,     214.80,     230.87,    1386.00,       3.00,     435.00,     566.00
+
