@@ -1,0 +1,38 @@
+Simple HBase benchmarking application
+Scenario,                                         Num Threads,        Puts,       Mean,      Stdev,        Max,        Min,    80 Pctl,    90 Pctl
+HTable from HTablePool (pool size: 100)           ,          1,        100,       4.86,       1.49,      12.00,       3.00,       5.00,       6.90
+HTable with same configuration instance           ,          1,        100,       4.52,       1.12,       9.00,       3.00,       5.00,       6.90
+HTable with new Hbase configuration instance      ,          1,        100,       4.15,       0.88,       8.00,       3.00,       4.00,       5.00
+
+HTable from HTablePool (pool size: 100)           ,          1,       1000,       4.19,       3.60,     108.00,       3.00,       4.00,       5.00
+HTable with same configuration instance           ,          1,       1000,       4.02,       1.79,      47.00,       3.00,       4.00,       5.00
+HTable with new Hbase configuration instance      ,          1,       1000,       3.84,       3.57,     108.00,       3.00,       4.00,       4.00
+
+HTable from HTablePool (pool size: 100)           ,          1,      10000,       3.95,       4.13,     211.00,       2.00,       4.00,       5.00
+HTable with same configuration instance           ,          1,      10000,       4.28,      10.02,     571.00,       2.00,       4.00,       5.00
+HTable with new Hbase configuration instance      ,          1,      10000,       3.80,       5.46,     244.00,       2.00,       4.00,       4.00
+
+HTable from HTablePool (pool size: 100)           ,         10,        100,      24.59,      22.73,     204.00,       4.00,      38.60,      44.00
+HTable with same configuration instance           ,         10,        100,      20.48,      28.05,     233.00,       5.00,      22.00,      36.80
+HTable with new Hbase configuration instance      ,         10,        100,      21.44,      28.05,     241.00,       5.00,      26.80,      50.90
+
+HTable from HTablePool (pool size: 100)           ,         10,       1000,      26.10,      21.94,     246.00,       5.00,      40.00,      49.00
+HTable with same configuration instance           ,         10,       1000,      23.80,      25.31,     238.00,       3.00,      35.80,      44.00
+HTable with new Hbase configuration instance      ,         10,       1000,      22.55,      21.96,     209.00,       4.00,      35.00,      44.00
+
+HTable with same configuration instance           ,         10,      10000,      22.67,      18.44,     287.00,       3.00,      37.00,      45.00
+HTable from HTablePool (pool size: 100)           ,         10,      10000,      22.06,      18.81,     279.00,       3.00,      36.00,      43.00
+HTable with new Hbase configuration instance      ,         10,      10000,      24.43,      26.67,     507.00,       3.00,      38.00,      46.00
+
+HTable from HTablePool (pool size: 100)           ,        100,        100,     106.45,      68.53,     422.00,       5.00,     164.60,     199.40
+HTable with same configuration instance           ,        100,        100,     102.81,      68.45,     421.00,       4.00,     167.80,     194.60
+HTable with new Hbase configuration instance      ,        100,        100,      25.73,      20.58,     209.00,       4.00,      29.80,      35.90
+
+HTable from HTablePool (pool size: 100)           ,        100,       1000,     195.38,     189.46,     696.00,       3.00,     375.80,     488.00
+HTable with same configuration instance           ,        100,       1000,     189.86,     193.69,     688.00,       3.00,     384.00,     492.00
+HTable with new Hbase configuration instance      ,        100,       1000,      79.80,     110.55,     525.00,       4.00,     151.00,     252.80
+
+HTable from HTablePool (pool size: 100)           ,        100,      10000,     219.65,     214.10,    1277.00,       3.00,     433.00,     543.00
+HTable with same configuration instance           ,        100,      10000,     277.60,     473.36,    4129.00,       3.00,     453.80,     609.00
+HTable with new Hbase configuration instance      ,        100,      10000,     214.80,     230.87,    1386.00,       3.00,     435.00,     566.00
+
