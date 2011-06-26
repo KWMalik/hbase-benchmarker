@@ -13,3 +13,6 @@ To use this application,
 5. Edit the "HbaseBenchmarking.java", and update the "hbaseConfiguration" variable to point to your HBase installation.
 6. Run the program.
 
+
+Comments can be posted here:
+http://www.srikanthps.com/2011/06/hbase-benchmarking-for-multi-threaded.html
