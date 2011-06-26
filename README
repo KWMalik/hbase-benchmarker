@@ -1,0 +1,15 @@
+hbase-benchmarker
+=================
+
+This is a simple Java application that can be used to study HBase Write behaviors in multi-threaded environments.
+
+This version is usable with HBase 0.20.6.
+
+To use this application,
+1. Create an Java project in Eclipse (or any other IDE of choice).
+2. Import the Java source files into the project.
+3. Add the jars from "lib" folder to class path.
+4. Add the "log4j.properties" to class path.
+5. Edit the "HbaseBenchmarking.java", and update the "hbaseConfiguration" variable to point to your HBase installation.
+6. Run the program.
+
