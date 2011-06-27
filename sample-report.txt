@@ -82,3 +82,22 @@ HTable with new Hbase configuration instance      ,        100,       1000,     
 HTable from HTablePool (pool size: 100)           ,        100,      10000,     149.96,     197.28,    1527.00,       1.00,     267.00,     333.00
 HTable with same configuration instance           ,        100,      10000,     134.47,     144.55,     646.00,       2.00,     276.00,     358.00
 HTable with new Hbase configuration instance      ,        100,      10000,     247.84,     692.83,   11043.00,       1.00,     370.00,     668.00
+
+
+
+Some specific tests with HTable based tests for HBase with Haddop
+=================================================================
+
+Large data 4kb:
+--------------
+Scenario,                                         Num Threads,        Puts,       Mean,      Stdev,        Max,        Min,    80 Pctl,    90 Pctl
+HTable from HTablePool (pool size: 100)           ,        100,     100000,     163.87,     589.23,   22951.00,       1.00,     239.00,     339.00
+HTable from HTablePool (pool size: 100)           ,        100,     100000,     260.78,     911.70,   31042.00,       1.00,     320.00,     650.00
+HTable from HTablePool (pool size: 100)           ,        100,     100000,     176.27,     453.95,   14680.00,       1.00,     238.00,     449.00
+
+Small data (20 bytes)
+---------------------
+Scenario,                                         Num Threads,        Puts,       Mean,      Stdev,        Max,        Min,    80 Pctl,    90 Pctl
+HTable from HTablePool (pool size: 100)           ,        100,     100000,      11.38,      12.10,     205.00,       1.00,      19.00,      28.00
+HTable from HTablePool (pool size: 100)           ,        100,     100000,      12.38,      13.71,     209.00,       1.00,      21.00,      30.00
+HTable from HTablePool (pool size: 100)           ,        100,     100000,      22.18,      11.30,     201.00,  
