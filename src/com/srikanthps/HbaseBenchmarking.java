@@ -44,8 +44,8 @@ public class HbaseBenchmarking {
 
 		long startingRowKey = 600000000000L;
 
-		System.out.println(StringUtils.rightPad("Scenario,", 50) + StringUtils.leftPad("Num Threads", LABEL_RIGHT_PAD)
-				+ StringUtils.leftPad("Puts", LABEL_RIGHT_PAD) + StringUtils.leftPad("Mean,", LABEL_RIGHT_PAD)
+		System.out.println(StringUtils.rightPad("Scenario,", 50) + StringUtils.leftPad("Num Threads,", LABEL_RIGHT_PAD)
+				+ StringUtils.leftPad("Puts,", LABEL_RIGHT_PAD) + StringUtils.leftPad("Mean,", LABEL_RIGHT_PAD)
 				+ StringUtils.leftPad("Stdev,", LABEL_RIGHT_PAD) + StringUtils.leftPad("Max,", LABEL_RIGHT_PAD)
 				+ StringUtils.leftPad("Min,", LABEL_RIGHT_PAD) + StringUtils.leftPad("80 Pctl,", LABEL_RIGHT_PAD)
 				+ StringUtils.leftPad("90 Pctl,", LABEL_RIGHT_PAD));
@@ -75,8 +75,8 @@ public class HbaseBenchmarking {
 		runTest(HTableWithNewHBaseConfiguration.class, startingRowKey, 1000, 10, DATA);
 		System.out.println();
 
-		runTest(HTableWithReusedHBaseConfiguration.class, startingRowKey, 10000, 10, DATA);
 		runTest(HTablePoolBasedRowCreator.class, startingRowKey, 10000, 10, DATA);
+		runTest(HTableWithReusedHBaseConfiguration.class, startingRowKey, 10000, 10, DATA);
 		runTest(HTableWithNewHBaseConfiguration.class, startingRowKey, 10000, 10, DATA);
 		System.out.println();
 
@@ -213,7 +213,7 @@ public class HbaseBenchmarking {
 		}
 
 		public HTable getHTable(String tableName) {
-			return hTablePool.getTable(tableName);
+			return (HTable)hTablePool.getTable(tableName);
 		}
 
 		public void returnHTable(HTable table) {
