@@ -8,10 +8,12 @@ This version is usable with HBase 0.20.6.
 To use this application,
 1. Create an Java project in Eclipse (or any other IDE of choice).
 2. Import the Java source files into the project.
-3. Add the jars from "lib" folder to class path.
-4. Add the "log4j.properties" to class path.
-5. Edit the "HbaseBenchmarking.java", and update the "hbaseConfiguration" variable to point to your HBase installation.
-6. Run the program.
+3. Add the jars from "common-jars" folder to class path.
+4. Add one of the "hbase-x.x.x-jars" to class path based on your HBase installation version.
+5. Add the "log4j.properties" to class path.
+6. Edit the "HbaseBenchmarking.java", and update the "hbaseConfiguration" variable to point to your HBase installation.
+7. Create a "testtable" with column family "data" in your HBase installation.
+8. Run the program.
 
 
 Comments can be posted here:
