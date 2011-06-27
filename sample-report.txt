@@ -1,4 +1,8 @@
 Simple HBase benchmarking application
+
+Result for Hbase 0.20.6 Stand Alone Installation
+=================================================
+
 Scenario,                                         Num Threads,        Puts,       Mean,      Stdev,        Max,        Min,    80 Pctl,    90 Pctl
 HTable from HTablePool (pool size: 100)           ,          1,        100,       4.86,       1.49,      12.00,       3.00,       5.00,       6.90
 HTable with same configuration instance           ,          1,        100,       4.52,       1.12,       9.00,       3.00,       5.00,       6.90
@@ -36,3 +40,45 @@ HTable from HTablePool (pool size: 100)           ,        100,      10000,     
 HTable with same configuration instance           ,        100,      10000,     277.60,     473.36,    4129.00,       3.00,     453.80,     609.00
 HTable with new Hbase configuration instance      ,        100,      10000,     214.80,     230.87,    1386.00,       3.00,     435.00,     566.00
 
+
+Results for HBase 0.20.6 Cluster in distributed mode wiht Hadoop 0.20 Cluster (CDH versions)
+Setup consisted of 3 Region servers and 3 Data nodes.
+============================================================================================
+
+
+Scenario,                                         Num Threads,        Puts,       Mean,      Stdev,        Max,        Min,    80 Pctl,    90 Pctl
+HTable from HTablePool (pool size: 100)           ,          1,        100,       3.25,       1.96,      18.00,       2.00,       3.00,       3.90
+HTable with same configuration instance           ,          1,        100,       2.98,       1.18,       9.00,       2.00,       3.00,       4.00
+HTable with new Hbase configuration instance      ,          1,        100,       2.91,       1.43,      10.00,       1.00,       3.00,       4.90
+
+HTable from HTablePool (pool size: 100)           ,          1,       1000,       4.56,       3.77,      40.00,       1.00,       6.00,      11.00
+HTable with same configuration instance           ,          1,       1000,       4.98,       4.04,      20.00,       1.00,      11.00,      11.00
+HTable with new Hbase configuration instance      ,          1,       1000,       2.28,       1.20,       9.00,       1.00,       3.00,       3.00
+
+HTable from HTablePool (pool size: 100)           ,          1,      10000,       2.48,       1.76,      41.00,       1.00,       3.00,       3.00
+HTable with same configuration instance           ,          1,      10000,       2.43,       1.78,      49.00,       1.00,       3.00,       3.00
+HTable with new Hbase configuration instance      ,          1,      10000,       2.84,       2.79,      52.00,       1.00,       3.00,       5.00
+
+HTable from HTablePool (pool size: 100)           ,         10,        100,      15.88,      21.62,     204.00,       2.00,      23.80,      32.90
+HTable with same configuration instance           ,         10,        100,      13.09,      20.50,     204.00,       2.00,      18.00,      20.00
+HTable with new Hbase configuration instance      ,         10,        100,       8.78,      19.64,     197.00,       2.00,       8.80,      13.00
+
+HTable from HTablePool (pool size: 100)           ,         10,       1000,      12.36,      10.76,     203.00,       2.00,      19.00,      22.00
+HTable with same configuration instance           ,         10,       1000,      12.39,      11.49,     202.00,       2.00,      20.00,      26.00
+HTable with new Hbase configuration instance      ,         10,       1000,       9.13,      10.79,     204.00,       1.00,      14.00,      17.90
+
+HTable with same configuration instance           ,         10,      10000,      37.87,     143.47,    4911.00,       2.00,      51.00,      84.00
+HTable from HTablePool (pool size: 100)           ,         10,      10000,      32.41,      59.62,    1785.00,       1.00,      50.00,      80.00
+HTable with new Hbase configuration instance      ,         10,      10000,      12.93,      11.26,     212.00,       2.00,      20.00,      24.00
+
+HTable from HTablePool (pool size: 100)           ,        100,        100,     296.71,     132.66,     710.00,      47.00,     404.80,     467.50
+HTable with same configuration instance           ,        100,        100,     263.60,     135.97,     738.00,      16.00,     389.40,     411.80
+HTable with new Hbase configuration instance      ,        100,        100,       7.11,       8.33,      48.00,       2.00,      10.00,      12.00
+
+HTable from HTablePool (pool size: 100)           ,        100,       1000,     108.58,     105.80,     419.00,       2.00,     215.00,     268.00
+HTable with same configuration instance           ,        100,       1000,     107.31,     105.14,     362.00,       2.00,     218.00,     267.00
+HTable with new Hbase configuration instance      ,        100,       1000,      10.24,      13.45,     203.00,       1.00,      11.00,      20.00
+
+HTable from HTablePool (pool size: 100)           ,        100,      10000,     149.96,     197.28,    1527.00,       1.00,     267.00,     333.00
+HTable with same configuration instance           ,        100,      10000,     134.47,     144.55,     646.00,       2.00,     276.00,     358.00
+HTable with new Hbase configuration instance      ,        100,      10000,     247.84,     692.83,   11043.00,       1.00,     370.00,     668.00
